@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Pages 部署示例</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e40af;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .terminal {
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        code {
+            display: block;
+            margin: 0.5rem 0;
+        }
+        .success {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Pages 部署示例</h1>
+        <div class="badge">免费 · 快速 · 无需服务器</div>
+        <p>将此代码推送到 GitHub 仓库，立即获得一个线上网站</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>部署步骤</h2>
+            <ol>
+                <li>创建 GitHub 仓库 (命名: <code>用户名.github.io</code>)</li>
+                <li>复制此 HTML 代码保存为 <code>index.html</code></li>
+                <li>将文件推送到 GitHub</li>
+                <li>开启 GitHub Pages 功能</li>
+            </ol>
+            
+            <h3>终端操作示例：</h3>
+            <div class="terminal">
+# 初始化本地仓库
+git init
+
+# 添加文件到仓库
+git add index.html
+
+# 提交更改
+git commit -m "Initial commit"
+
+# 关联远程仓库 (替换为你的仓库URL)
+git remote add origin https://github.com/用户名/用户名.github.io.git
+
+# 推送到 GitHub
+git push -u origin main
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>GitHub 设置步骤</h2>
+            <ol>
+                <li>进入你的 GitHub 仓库</li>
+                <li>点击 <strong>Settings</strong> → <strong>Pages</strong></li>
+                <li>选择分支: <code>main</code></li>
+                <li>选择文件夹: <code>/ (root)</code></li>
+                <li>点击 <strong>Save</strong></li>
+            </ol>
+            
+            <div class="terminal">
+<span class="success">√ 部署成功！</span>
+你的网站已上线：
+https://<span id="username">用户名</span>.github.io
+
+访问链接: <a href="#" id="liveLink">https://用户名.github.io</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>部署提示：此页面将在推送到 GitHub 后自动上线</p>
+        <p>© 2023 GitHub Pages 示例 | 零成本部署静态网站</p>
+    </footer>
+
+    <script>
+        // 自动获取当前年份
+        document.querySelector('footer p:last-child').innerHTML = 
+            `© ${new Date().getFullYear()} GitHub Pages 示例 | 零成本部署静态网站`;
+        
+        // 模拟部署成功效果
+        setTimeout(() => {
+            const liveLink = document.getElementById('liveLink');
+            liveLink.style.fontWeight = 'bold';
+            liveLink.style.color = '#2563eb';
+        }, 2000);
+    </script>
+</body>
+</html>
